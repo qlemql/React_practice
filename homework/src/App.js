@@ -5,8 +5,9 @@ import logo from "./logo.svg";
 import BucketList from "./BucketList";
 import styled from "styled-components";
 import { withRouter } from "react-router";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Detail from "./Detail";
+import NotFound from "./NotFound";
 
 // 클래스형 컴포넌트는 이렇게 생겼습니다!
 class App extends React.Component {
@@ -39,14 +40,22 @@ class App extends React.Component {
           <Line />
           {/* 컴포넌트를 넣어줍니다. */}
           {/* <컴포넌트 명 [props 명]={넘겨줄 것(리스트, 문자열, 숫자, ...)}/> */}
-          <Route
-            path="/"
-            exact
-            render={(props) => (
-              <BucketList history={this.props.history} list={this.state.list} />
-            )}
-          />
-          <Route path="/detail" component={Detail} />
+          <Switch>
+            <Route
+              path="/"
+              exact
+              render={(props) => (
+                <BucketList
+                  history={this.props.history}
+                  list={this.state.list}
+                />
+              )}
+            />
+            <Route path="/detail" component={Detail} />
+            <Route
+              render={(props) => <NotFound history={this.props.history} />}
+            />
+          </Switch>
         </Container>
         <Add>
           <input type="text" ref={this.text}></input>
