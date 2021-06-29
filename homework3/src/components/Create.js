@@ -1,20 +1,47 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { CreateVoca } from "./addVoca";
 
 const Create = (props) => {
+  const vocaNameInput = React.useRef(null);
+  const vocaDescInput = React.useRef(null);
+  const vocaExamInput = React.useRef(null);
+  const dispatch = useDispatch();
+
+  const addVocaList = () => {
+    const voca = {
+      id: "",
+      word: vocaNameInput.current.value,
+      desc: vocaDescInput.current.value,
+      example: vocaExamInput.current.value,
+    };
+    dispatch(CreateVoca(voca));
+  };
+
   return (
-    <div>
+    <>
       <Container>
         <h1>단어 추가하기</h1>
-        <Word>단어</Word>
-        <input />
-        <Desc>설명</Desc>
-        <input />
-        <Example>예시</Example>
-        <input />
-        <button>추가하기</button>
+        <div>
+          <span>단어</span>
+          <input type="text" ref={vocaNameInput} />
+        </div>
+        <div>
+          <span>설명</span>
+          <input type="text" ref={vocaDescInput} />
+        </div>
+        <div>
+          <span>예시</span>
+          <input type="text" ref={vocaExamInput} />
+        </div>
+
+        <Link to="/">
+          <button onClick={addVocaList}>추가하기</button>
+        </Link>
       </Container>
-    </div>
+    </>
   );
 };
 
@@ -28,32 +55,6 @@ const Container = styled.div`
   justify-content: flex-start;
   align-items: center;
   position: relative;
-`;
-
-// const CardBox = styled.div`
-//   width: 400px;
-//   height: 300px;
-//   background-color: #e2fff8;
-//   margin-bottom: 10px;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-around;
-//   align-items: flex-start;
-// `;
-
-const Word = styled.div`
-  border-bottom: 1px solid black;
-  width: 35px;
-`;
-
-const Desc = styled.div`
-  border-bottom: 1px solid black;
-  width: 35px;
-`;
-
-const Example = styled.div`
-  border-bottom: 1px solid black;
-  width: 35px;
 `;
 
 export default Create;
