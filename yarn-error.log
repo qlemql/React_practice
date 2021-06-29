@@ -1,0 +1,36 @@
+Arguments: 
+  /home/taehyun/.nvm/versions/node/v12.18.4/bin/node /home/taehyun/.nvm/versions/node/v12.18.4/bin/yarn add react-reudx
+
+PATH: 
+  /home/taehyun/.nvm/versions/node/v12.18.4/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files (x86)/Windows Live/Shared:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/data/db/bin:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Users/TaeHyun/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/TaeHyun/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/TaeHyun/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/TaeHyun/AppData/Roaming/npm:/mnt/c/Program Files/MongoDB/Server/4.2/bin:/mnt/c/Users/TaeHyun/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/TaeHyun/AppData/Roaming/nvm:/mnt/c/Program Files/nodejs
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  12.18.4
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/react-reudx: Not found
+      at Request.params.callback [as _callback] (/home/taehyun/.nvm/versions/node/v12.18.4/lib/node_modules/yarn/lib/cli.js:66988:18)
+      at Request.self.callback (/home/taehyun/.nvm/versions/node/v12.18.4/lib/node_modules/yarn/lib/cli.js:140662:22)
+      at Request.emit (events.js:315:20)
+      at Request.<anonymous> (/home/taehyun/.nvm/versions/node/v12.18.4/lib/node_modules/yarn/lib/cli.js:141634:10)
+      at Request.emit (events.js:315:20)
+      at IncomingMessage.<anonymous> (/home/taehyun/.nvm/versions/node/v12.18.4/lib/node_modules/yarn/lib/cli.js:141556:12)
+      at Object.onceWrapper (events.js:421:28)
+      at IncomingMessage.emit (events.js:327:22)
+      at endReadableNT (_stream_readable.js:1220:12)
+      at processTicksAndRejections (internal/process/task_queues.js:84:21)
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
