@@ -2,22 +2,24 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { CreateVoca } from "./addVoca";
+import { addVocaFB } from "./addVoca";
 
 const Create = (props) => {
+  // input값 받아오기
   const vocaNameInput = React.useRef(null);
   const vocaDescInput = React.useRef(null);
   const vocaExamInput = React.useRef(null);
+  // dispatch 사용 = action함수를 호출해서 사용한다.
   const dispatch = useDispatch();
 
   const addVocaList = () => {
     const voca = {
       id: "",
-      word: vocaNameInput.current.value,
+      text: vocaNameInput.current.value,
       desc: vocaDescInput.current.value,
       example: vocaExamInput.current.value,
     };
-    dispatch(CreateVoca(voca));
+    dispatch(addVocaFB(voca));
   };
 
   return (

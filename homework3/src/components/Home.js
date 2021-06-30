@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 
 const Home = (props) => {
   const voca_lists = useSelector((state) => state.voca_list);
+  console.log(voca_lists);
 
   return (
     <div>
@@ -15,7 +16,7 @@ const Home = (props) => {
             <CardBox key={v.id}>
               <div>
                 <Word>단어</Word>
-                <div>{v.word}</div>
+                <div>{v.text}</div>
               </div>
               <div>
                 <Word>설명</Word>
