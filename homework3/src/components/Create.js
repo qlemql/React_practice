@@ -14,7 +14,6 @@ const Create = (props) => {
 
   const addVocaList = () => {
     const voca = {
-      id: "",
       text: vocaNameInput.current.value,
       desc: vocaDescInput.current.value,
       example: vocaExamInput.current.value,
@@ -26,21 +25,21 @@ const Create = (props) => {
     <>
       <Container>
         <h1>단어 추가하기</h1>
-        <div>
-          <span>단어</span>
+        <Box>
+          <span>단어</span>&nbsp;&nbsp;
           <input type="text" ref={vocaNameInput} />
-        </div>
-        <div>
-          <span>설명</span>
+        </Box>
+        <Box>
+          <span>설명</span>&nbsp;&nbsp;
           <input type="text" ref={vocaDescInput} />
-        </div>
-        <div>
-          <span>예시</span>
+        </Box>
+        <Box>
+          <span>예시</span>&nbsp;&nbsp;
           <input type="text" ref={vocaExamInput} />
-        </div>
+        </Box>
 
         <Link to="/">
-          <button onClick={addVocaList}>추가하기</button>
+          <Button onClick={addVocaList}>추가하기</Button>
         </Link>
       </Container>
     </>
@@ -48,15 +47,55 @@ const Create = (props) => {
 };
 
 const Container = styled.div`
-  width: 500px;
+  width: 100%;
   height: 100vh;
-  background-color: #eee;
-  margin: auto;
+  margin: 10% auto;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   position: relative;
+  h1 {
+    color: #1fa2ff;
+  }
+`;
+
+const Box = styled.div`
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to right, #6190e8, #a7bfe8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  font-size: 24px;
+  color: #eee;
+  padding: 10px;
+  border-radius: 15px;
+  transition: all 0.3s;
+  input {
+    padding: 10px;
+    border: none;
+    outline: none;
+  }
+  &:hover {
+    width: 110%;
+    height: 110px;
+  }
+`;
+
+const Button = styled.button`
+  width: 200px;
+  height: 50px;
+  border-radius: 15px;
+  border: none;
+  color: #6190e8;
+  font-size: 24px;
+  transition: all 0.3s;
+  &:hover {
+    width: 210px;
+    height: 60px;
+  }
 `;
 
 export default Create;

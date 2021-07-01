@@ -5,12 +5,11 @@ import { useSelector } from "react-redux";
 
 const Home = (props) => {
   const voca_lists = useSelector((state) => state.voca_list);
-  console.log(voca_lists);
 
   return (
     <div>
       <Container>
-        <h1>MY DICTIONARY</h1>
+        <h2>MY DICTIONARY</h2>
         {voca_lists.map((v) => {
           return (
             <CardBox key={v.id}>
@@ -43,58 +42,65 @@ const Home = (props) => {
 };
 
 const Container = styled.div`
-  width: 500px;
-  height: 100vh;
-  background-color: #eee;
-  margin: auto;
+  width: 100%;
+  height: 100%;
+  margin: 10% auto;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   position: relative;
 `;
 
 const CardBox = styled.div`
-  width: 400px;
-  height: 300px;
-  background-color: #e2fff8;
-  margin-bottom: 10px;
+  width: 75%;
+  height: 100%;
+  background: linear-gradient(to right, #6190e8, #a7bfe8);
+  margin-bottom: 30px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: flex-start;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.35);
+  border-radius: 10px;
+  padding: 10px;
+  transition: all 0.3s;
+  cursor: pointer;
+  color: #cfdef3;
+  &:hover {
+    width: 80%;
+    height: 110%;
+  }
 `;
 
 const Word = styled.div`
-  border-bottom: 1px solid black;
   width: 35px;
+  color: #eee;
+  font-weight: bold;
 `;
 
-// const Desc = styled.div`
-//   border-bottom: 1px solid black;
-//   width: 35px;
-// `;
-
-// const Example = styled.div`
-//   border-bottom: 1px solid black;
-//   width: 35px;
-// `;
-
 const ExampleContent = styled.div`
-  color: blue;
+  color: #cfdef3;
 `;
 
 const AddButton = styled.button`
   position: absolute;
-  bottom: 10px;
+  bottom: 0px;
   right: 10px;
   width: 50px;
   height: 50px;
-  background-color: purple;
+  background-color: #a4bde8;
   border: none;
   color: white;
   font-size: 36px;
   border-radius: 50%;
+  transition: all 0.3s;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  &:hover {
+    width: 55px;
+    height: 55px;
+  }
 `;
 
 export default withRouter(Home);

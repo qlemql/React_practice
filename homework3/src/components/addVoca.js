@@ -51,7 +51,6 @@ const initialState = {
 export const addVocaFB = (addVoca) => {
   return function (dispatch) {
     let voca_data = { ...addVoca, completed: false };
-    console.log(voca_data);
     voca_db
       .add(voca_data)
       .then((docRef) => {

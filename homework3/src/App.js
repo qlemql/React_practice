@@ -1,12 +1,22 @@
 import React from "react";
-import styled from "styled-components";
 import { withRouter } from "react-router";
 import { Route } from "react-router-dom";
+import styled from "styled-components";
 import Home from "./components/Home";
 import Create from "./components/Create";
 import { firestore } from "./firebase";
 import { connect } from "react-redux";
 import { loadVocaFB } from "./components/addVoca";
+import Clock from "react-live-clock";
+import {
+  FaSignal,
+  FaBatteryFull,
+  FaWifi,
+  FaBars,
+  FaRegSquare,
+  FaChevronLeft,
+  FaWeight,
+} from "react-icons/fa";
 
 const mapStateToProps = (state) => ({
   voca_list: state.voca_list,
@@ -70,8 +80,36 @@ class App extends React.Component {
     return (
       <>
         <Container>
-          <Route path="/" exact component={Home} />
-          <Route path="/create" exact component={Create} />
+          <Header>
+            <Clock
+              style={{ fontSize: "18px", fontWeight: "bold", color: "#1FA2FF" }}
+              format={"HH:mm"}
+              ticking={true}
+              timezone={"KR"}
+            ></Clock>
+            <Items>
+              <FaSignal />
+              &nbsp;&nbsp;
+              <FaWifi />
+              &nbsp;&nbsp;
+              <FaBatteryFull />
+            </Items>
+          </Header>
+          <div>
+            <Route path="/" exact component={Home} />
+            <Route path="/create" exact component={Create} />
+          </div>
+          <Footer>
+            <div>
+              <FaBars />
+            </div>
+            <div>
+              <FaRegSquare />
+            </div>
+            <div>
+              <FaChevronLeft />
+            </div>
+          </Footer>
         </Container>
       </>
     );
@@ -79,15 +117,48 @@ class App extends React.Component {
 }
 
 const Container = styled.div`
-  width: 500px;
-  height: 100vh;
-  background-color: #eee;
-  margin: auto;
+  width: 90%;
+  height: 100%;
+  background: linear-gradient(to right, #c9d6ff, #e2e2e2);
+  margin: 10% auto;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   position: relative;
+  border-radius: 40px;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.35);
+  h2 {
+    width: auto;
+    height: 20px;
+    padding-bottom: 10px;
+    color: #1fa2ff;
+  }
+`;
+
+const Header = styled.div`
+  width: 100%;
+  height: 10px;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+`;
+
+const Items = styled.div`
+  margin-left: 50px;
+`;
+
+const Footer = styled.div`
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 15px;
+  div {
+    cursor: pointer;
+  }
 `;
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(App));
