@@ -27,6 +27,10 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(loadVocaFB());
   },
 });
+
+const nope = () => {
+  alert("안돼 돌아가");
+};
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -100,13 +104,13 @@ class App extends React.Component {
             <Route path="/create" exact component={Create} />
           </div>
           <Footer>
-            <div>
+            <div onClick={nope}>
               <FaBars />
             </div>
-            <div>
+            <div onClick={nope}>
               <FaRegSquare />
             </div>
-            <div>
+            <div onClick={nope}>
               <FaChevronLeft />
             </div>
           </Footer>
