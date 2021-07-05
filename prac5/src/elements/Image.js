@@ -1,5 +1,5 @@
-import React from "react";
 import styled from "styled-components";
+import React from "react";
 
 const Image = (props) => {
   const { shape, src, size } = props;
@@ -22,17 +22,25 @@ const Image = (props) => {
   }
 
   return (
-    <>
-      <div></div>
-    </>
+    <React.Fragment>
+      <ImageDefault {...styles}></ImageDefault>
+    </React.Fragment>
   );
 };
 
 Image.defaultProps = {
-  shape: "rectangle",
-  src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQm88cXS6sHyoqCAZkbuvTnE6b3arBm2Uvx4A&usqp=CAU",
+  shape: "circle",
+  src: "https://mean0images.s3.ap-northeast-2.amazonaws.com/4.jpeg",
   size: 36,
 };
+
+const ImageDefault = styled.div`
+  --size: ${(props) => props.size}px;
+  width: var(--size);
+  height: var(--size);
+  background-image: url("${(props) => props.src}");
+  background-size: cover;
+`;
 
 const AspectOutter = styled.div`
   width: 100%;

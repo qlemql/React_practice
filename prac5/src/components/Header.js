@@ -3,7 +3,7 @@ import { Grid, Text, Button } from "../elements";
 import { getCookie, deleteCookie } from "../shared/Cookie";
 
 import { useSelector, useDispatch } from "react-redux";
-import { actionCreators as userArctions } from "../redux/modules/user";
+import { actionCreators as userActions } from "../redux/modules/user";
 
 import { history } from "../redux/configureStore";
 import { apiKey } from "../shared/firebase";
@@ -15,11 +15,12 @@ const Header = (props) => {
   const _session_key = `firebase:authUser:${apiKey}:[DEFAULT]`;
 
   const is_session = sessionStorage.getItem(_session_key) ? true : false;
+
   console.log(is_session);
 
   if (is_login && is_session) {
     return (
-      <>
+      <React.Fragment>
         <Grid is_flex padding="4px 16px">
           <Grid>
             <Text margin="0px" size="24px" bold>
@@ -29,16 +30,21 @@ const Header = (props) => {
 
           <Grid is_flex>
             <Button text="내정보"></Button>
-            <Button text="알림"></Button>
             <Button
               _onClick={() => {
-                dispatch(userArctions.logoutFB());
+                history.push("/noti");
               }}
+              text="알림"
+            ></Button>
+            <Button
               text="로그아웃"
+              _onClick={() => {
+                dispatch(userActions.logoutFB());
+              }}
             ></Button>
           </Grid>
         </Grid>
-      </>
+      </React.Fragment>
     );
   }
 
@@ -53,16 +59,16 @@ const Header = (props) => {
 
         <Grid is_flex>
           <Button
+            text="로그인"
             _onClick={() => {
               history.push("/login");
             }}
-            text="로그인"
           ></Button>
           <Button
+            text="회원가입"
             _onClick={() => {
               history.push("/signup");
             }}
-            text="회원가입"
           ></Button>
         </Grid>
       </Grid>

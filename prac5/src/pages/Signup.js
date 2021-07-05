@@ -19,15 +19,16 @@ const Signup = (props) => {
       return;
     }
 
-    if (!emailCheck(id)) {
-      window.alert("이메일 형식이 맞지 않습니다!");
+    if(!emailCheck(id)){
+      window.alert('이메일 형식이 맞지 않습니다!');
+      return;
+    }
+    
+    if (pwd !== pwd_check) {
+      window.alert("패스워드와 패스워드 확인이 일치하지 않습니다!");
       return;
     }
 
-    if (pwd !== pwd_check) {
-      window.alert("패스워드가 일치하지 않습니다!");
-      return;
-    }
     dispatch(userActions.signupFB(id, pwd, user_name));
   };
   return (
@@ -59,7 +60,6 @@ const Signup = (props) => {
 
         <Grid padding="16px 0px">
           <Input
-            type="password"
             label="비밀번호"
             placeholder="비밀번호를 입력해주세요."
             _onChange={(e) => {
@@ -70,7 +70,6 @@ const Signup = (props) => {
 
         <Grid padding="16px 0px">
           <Input
-            type="password"
             label="비밀번호 확인"
             placeholder="비밀번호를 다시 입력해주세요."
             _onChange={(e) => {
@@ -79,7 +78,7 @@ const Signup = (props) => {
           />
         </Grid>
 
-        <Button _onClick={signup} text="회원가입하기"></Button>
+        <Button text="회원가입하기" _onClick={signup}></Button>
       </Grid>
     </React.Fragment>
   );
