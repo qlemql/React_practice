@@ -7,7 +7,7 @@ const Button = (props) => {
   if (is_float) {
     return (
       <React.Fragment>
-        <FloatButton onClick={_onClick}>{text ? text : children}</FloatButton>
+        <FloatButton onClick={_onClick}>{text? text : children}</FloatButton>
       </React.Fragment>
     );
   }
@@ -20,9 +20,7 @@ const Button = (props) => {
 
   return (
     <React.Fragment>
-      <ElButton {...styles} onClick={_onClick}>
-        {text ? text : children}
-      </ElButton>
+      <ElButton {...styles} onClick={_onClick}>{text? text: children}</ElButton>
     </React.Fragment>
   );
 };
@@ -58,9 +56,8 @@ const FloatButton = styled.button`
   position: fixed;
   bottom: 50px;
   right: 16px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
+  vertical-align: middle;
   border: none;
   border-radius: 50px;
 `;

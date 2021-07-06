@@ -1,13 +1,9 @@
 import React from "react";
-// import Grid from "../elements/Grid";
-// import Image from "../elements/Image";
-// import Text from "../elements/Text";
+import { Grid, Image, Text, Button } from "../elements";
 
-import { Grid, Image, Text } from "../elements";
-import { Button } from "../elements";
-import { history } from "../redux/configureStore";
+import {history} from "../redux/configureStore";
 
-const Post = (props) => {
+ const Post = (props) => {
   return (
     <React.Fragment>
       <Grid>
@@ -19,14 +15,9 @@ const Post = (props) => {
           <Grid is_flex width="auto">
             <Text>{props.insert_dt}</Text>
             {props.is_me && (
-              <Button
-                padding="4px"
-                width="auto"
-                margin="4px"
-                _onClick={() => {
-                  history.push(`/write/${props.id}`);
-                }}
-              >
+              <Button width="auto" margin="4px" padding="4px" _onClick={() => {
+                history.push(`/write/${props.id}`);
+              }}>
                 수정
               </Button>
             )}

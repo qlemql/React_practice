@@ -12,8 +12,6 @@ const PostWrite = (props) => {
   const preview = useSelector((state) => state.image.preview);
   const post_list = useSelector((state) => state.post.list);
 
-  console.log(props.match.params.id);
-
   const post_id = props.match.params.id;
   const is_edit = post_id ? true : false;
 
@@ -45,8 +43,8 @@ const PostWrite = (props) => {
   };
 
   const editPost = () => {
-    dispatch(postActions.editPostFB(post_id, { contents: contents }));
-  };
+    dispatch(postActions.editPostFB(post_id, {contents: contents}));
+  }
 
   if (!is_login) {
     return (
@@ -54,7 +52,7 @@ const PostWrite = (props) => {
         <Text size="32px" bold>
           앗! 잠깐!
         </Text>
-        <Text size="16px">로그인 후에만 글을 작성할 수 있어요!</Text>
+        <Text size="16px">로그인 후에만 글을 쓸 수 있어요!</Text>
         <Button
           _onClick={() => {
             history.replace("/");
@@ -65,6 +63,7 @@ const PostWrite = (props) => {
       </Grid>
     );
   }
+
   return (
     <React.Fragment>
       <Grid padding="16px">
