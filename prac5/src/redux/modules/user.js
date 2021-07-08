@@ -29,8 +29,6 @@ const loginFB = (id, pwd) => {
       auth
         .signInWithEmailAndPassword(id, pwd)
         .then((user) => {
-          console.log(user);
-
           dispatch(
             setUser({
               user_name: user.user.displayName,
@@ -40,9 +38,11 @@ const loginFB = (id, pwd) => {
             })
           );
 
-          history.push("/");
+          // history.push("/");
+          window.location.href = "/";
         })
         .catch((error) => {
+          window.alert("로그인 실패!");
           var errorCode = error.code;
           var errorMessage = error.message;
 
@@ -77,24 +77,20 @@ const signupFB = (id, pwd, user_name) => {
           .catch((error) => {
             console.log(error);
           });
-
-        // Signed in
-        // ...
       })
       .catch((error) => {
         var errorCode = error.code;
         var errorMessage = error.message;
 
         console.log(errorCode, errorMessage);
-        // ..
       });
   };
 };
 
 const loginCheckFB = () => {
-  return function (dispatch, getState, {history}){
+  return function (dispatch, getState, { history }) {
     auth.onAuthStateChanged((user) => {
-      if(user){
+      if (user) {
         dispatch(
           setUser({
             user_name: user.displayName,
@@ -103,21 +99,21 @@ const loginCheckFB = () => {
             uid: user.uid,
           })
         );
-      }else{
+      } else {
         dispatch(logOut());
       }
-    })
-  }
-}
+    });
+  };
+};
 
 const logoutFB = () => {
-  return function (dispatch, getState, {history}) {
+  return function (dispatch, getState, { history }) {
     auth.signOut().then(() => {
       dispatch(logOut());
-      history.replace('/');
-    })
-  }
-}
+      history.replace("/");
+    });
+  };
+};
 
 // reducer
 export default handleActions(

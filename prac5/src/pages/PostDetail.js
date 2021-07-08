@@ -12,7 +12,6 @@ import { actionCreators as postActions } from "../redux/modules/post";
 const PostDetail = (props) => {
   const dispatch = useDispatch();
   const id = props.match.params.id;
-  console.log(id);
 
   const user_info = useSelector((state) => state.user.user);
   const post_list = useSelector((store) => store.post.list);

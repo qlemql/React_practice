@@ -2,21 +2,23 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
 import "firebase/storage";
+import "firebase/database";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCVGhsqCeKAuJOaKQy4Ge86Xguc3Ar_TMw",
-  authDomain: "react-homework-50a70.firebaseapp.com",
-  projectId: "react-homework-50a70",
-  storageBucket: "react-homework-50a70.appspot.com",
-  messagingSenderId: "830290407218",
-  appId: "1:830290407218:web:3f1cf93b3d169fa2d7f12b",
+  apiKey: "AIzaSyCid3s26Rdtb3CPsu0pURJ-2jHPpmTT7GA",
+  authDomain: "react-homework3.firebaseapp.com",
+  projectId: "react-homework3",
+  storageBucket: "react-homework3.appspot.com",
+  messagingSenderId: "995971959172",
+  appId: "1:995971959172:web:ec9b8e490919f858c375d1",
 };
 
 firebase.initializeApp(firebaseConfig);
 
+const apiKey = firebaseConfig.apiKey;
 const auth = firebase.auth();
 const firestore = firebase.firestore();
-export const apiKey = firebaseConfig.apiKey;
 const storage = firebase.storage();
+const realtime = firebase.database();
 
-export { auth, firestore, storage };
+export { auth, apiKey, firestore, storage, realtime };
