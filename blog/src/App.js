@@ -17,6 +17,12 @@ function App() {
     글제목변경(새로운정렬);
   }
 
+  let [modal, modal변경] = useState(false);
+
+  function 모달() {
+    modal변경(!modal);
+  }
+
   return (
     <div className="App">
       <div className="black-nav">
@@ -45,12 +51,14 @@ function App() {
         <hr />
       </div>
       <div className="list">
-        <h3> {글제목[2]} </h3>
+        <h3 onClick={모달}> {글제목[2]} </h3>
         <p>10월 5일 발행</p>
         <hr />
       </div>
 
-      <Modal />
+      <button onClick={모달}>모달 버튼</button>
+
+      {modal === true ? <Modal /> : null}
     </div>
   );
 }
