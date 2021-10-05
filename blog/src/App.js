@@ -30,43 +30,37 @@ function App() {
       </div>
       <button onClick={제목바꾸기}>버튼</button>
       <button onClick={정렬하기}>정렬</button>
-      <div className="list">
-        <h3>
-          {글제목[0]}
-          <span
-            onClick={() => {
-              setLike(like + 1);
-            }}
-          >
-            👍
-          </span>
-          {like}
-        </h3>
-        <p>10월 5일 발행</p>
-        <hr />
-      </div>
-      <div className="list">
-        <h3> {글제목[1]} </h3>
-        <p>10월 5일 발행</p>
-        <hr />
-      </div>
-      <div className="list">
-        <h3 onClick={모달}> {글제목[2]} </h3>
-        <p>10월 5일 발행</p>
-        <hr />
-      </div>
+      {글제목.map((글) => {
+        return (
+          <div className="list">
+            <h3>
+              {글}
+              <span
+                onClick={() => {
+                  setLike(like + 1);
+                }}
+              >
+                👍
+              </span>
+              {like}
+            </h3>
+            <p>10월 5일 발행</p>
+            <hr />
+          </div>
+        );
+      })}
 
       <button onClick={모달}>모달 버튼</button>
 
-      {modal === true ? <Modal /> : null}
+      {modal === true ? <Modal 글제목={글제목} /> : null}
     </div>
   );
 }
 
-function Modal() {
+function Modal(props) {
   return (
     <div className="modal">
-      <h2>제목</h2>
+      <h2>{props.글제목[0]}</h2>
       <p>날짜</p>
       <p>상세내용</p>
     </div>
