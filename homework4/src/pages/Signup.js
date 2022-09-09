@@ -25,10 +25,9 @@ const Signup = (props) => {
     }
 
     if (pwd !== pwd_check) {
-      window.alert("패스워드와 패스워드 확인이 일치하지 않습니다!");
+      window.alert("패스워드가 일치하지 않습니다!");
       return;
     }
-
     dispatch(userActions.signupFB(id, pwd, user_name));
   };
   return (
@@ -60,8 +59,8 @@ const Signup = (props) => {
 
         <Grid padding="16px 0px">
           <Input
-            label="비밀번호"
             type="password"
+            label="비밀번호"
             placeholder="비밀번호를 입력해주세요."
             _onChange={(e) => {
               setPwd(e.target.value);
@@ -71,8 +70,8 @@ const Signup = (props) => {
 
         <Grid padding="16px 0px">
           <Input
-            label="비밀번호 확인"
             type="password"
+            label="비밀번호 확인"
             placeholder="비밀번호를 다시 입력해주세요."
             _onChange={(e) => {
               setPwdCheck(e.target.value);
@@ -80,7 +79,7 @@ const Signup = (props) => {
           />
         </Grid>
 
-        <Button text="회원가입하기" _onClick={signup}></Button>
+        <Button _onClick={signup} text="회원가입하기"></Button>
       </Grid>
     </React.Fragment>
   );
